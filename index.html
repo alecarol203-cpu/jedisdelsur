@@ -154,7 +154,6 @@
     nav.links.open{max-height:400px;}
     nav.links a{padding:16px 28px;border-bottom:1px solid var(--line-soft);}
     nav.links a::after{display:none;}
-    .nav-cta .btn-ghost{display:none;}
     .burger{display:block;}
   }
 
@@ -511,7 +510,6 @@
       <a href="#contacto">Contacto</a>
     </nav>
     <div class="nav-cta">
-      <a href="#pagos" class="btn btn-ghost">Formas de pago</a>
       <a href="https://wa.me/5493416514065?text=Hola!%20Quiero%20consultar%20por%20un%20sable%20l%C3%A1ser" target="_blank" rel="noopener" class="btn btn-primary">Consultar ahora</a>
       <button class="burger" id="burgerBtn" aria-label="Abrir menú">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -1023,23 +1021,6 @@
       }
     }
 
-    function initImageExpand() {
-      if (!hasGSAP) return;
-      var amount = reduced ? 1.06 : 1.22;
-      var drift = reduced ? 0 : 6;
-      gsap.utils.toArray('.media-main img, .feat-media img').forEach(function (img) {
-        var box = img.closest('.media-main, .feat-media');
-        if (!box) return;
-        gsap.fromTo(img,
-          { scale: amount, yPercent: drift },
-          {
-            scale: 1, yPercent: -drift, ease: 'none',
-            scrollTrigger: { trigger: box, start: 'top bottom', end: 'bottom top', scrub: 0.6 }
-          }
-        );
-      });
-    }
-
     function initNavSpy() {
       if (!hasGSAP) return;
       var ids = ['modelos', 'caracteristicas', 'video', 'clientes', 'pagos', 'contacto'];
@@ -1157,7 +1138,6 @@
     safe(initReveals, 'reveals');
     safe(initStaggerGroups, 'staggerGroups');
     safe(initHeroParallax, 'heroParallax');
-    safe(initImageExpand, 'imageExpand');
     safe(initNavSpy, 'navSpy');
     safe(initTilt, 'tilt');
     safe(initSaberCursor, 'saberCursor');
